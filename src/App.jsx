@@ -1,19 +1,8 @@
 import './App.css'
+import TodoList from './TodoList'
+import AddTodoForm from './AddTodoForm'
 
-//Objects
-const toDoList = [
-  {
-    id: 0,
-    title: "File Taxes"
-  },
-  {
-    id:1,
-    title: "Make vet appointment"
-  },{
-    id:2,
-    title: "Get groceries"
-  }
-]
+
 function App() {
 
 
@@ -21,15 +10,8 @@ function App() {
     <>
     <div>
       <h1>To Do List</h1>
-      <ul>
-        {
-          toDoList.map(function(item){
-            return(
-              <li key={item.id}>{item.title}</li>
-            )
-          })
-        }
-      </ul>
+      <AddTodoForm/>
+      <TodoList/>
     </div>
     </>
   )
