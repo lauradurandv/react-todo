@@ -1,6 +1,6 @@
 function TodoListItem(props){
     //Deconstructors
-    const { todo, title } = props;
+    const { todo} = props;
     
     return(
         <li>{todo.title}</li>
