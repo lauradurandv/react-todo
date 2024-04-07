@@ -5,6 +5,7 @@ function AddTodoForm(props){
     //Deconstructors
     const { onAddTodo} = props;
 
+    //State Setting
     const [todoTitle, settodoTitle] = useState("");
 
     function handleTitleChange(event){

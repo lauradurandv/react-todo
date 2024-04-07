@@ -1,24 +1,36 @@
 import './App.css'
 import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
+//Custom Hook
+function useSemiPersistentState(){
+
+  //State Setting and reading stored list
+  const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('savedTodoList')));
+
+  //Use effect to save to do list data
+  useEffect(() => {
+    localStorage.setItem('savedTodoList', JSON.stringify(todoList));
+  }, [todoList]);
+
+  return [todoList, setTodoList]
+}
 
 function App() {
 
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useSemiPersistentState();
 
   function addTodo(newTodo){
+    //Using spread operator
     setTodoList([...todoList, newTodo]);
   }
 
   return (
     <>
-    <div>
       <h1>To Do List</h1>
       <AddTodoForm onAddTodo={addTodo} />
       <TodoList todoList={todoList}/>
-    </div>
     </>
   )
 }
