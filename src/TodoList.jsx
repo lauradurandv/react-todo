@@ -2,14 +2,14 @@ import TodoListItem from "./TodoListItem";
 
 function TodoList(props){
     //Deconstructors
-    const {todoList} = props;
+    const {todoList, onRemoveTodo} = props;
 
     return(
         <ul>
         {
           todoList.map(function(item){
             return(
-              < TodoListItem key={item.id} todo={item}/>
+              < TodoListItem onRemoveTodo={onRemoveTodo} key={item.id} todo={item}/>
             )
           })
         }
