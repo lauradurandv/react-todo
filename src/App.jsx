@@ -26,16 +26,6 @@ function App() {
         throw new Error();
     }
   };
-
-  //fetch data async
-  function getAsyncTodos(){
-    return new Promise((resolve,reject) =>
-      setTimeout(() => {
-        resolve({
-           data:{ todoList: JSON.parse(localStorage.getItem('savedTodoList')) }
-        })
-      }))
-  }
   
   //Converting todo to use reducer
   const [todoList, dispatchTodo] = useReducer(
@@ -88,8 +78,43 @@ function App() {
 
   }
 
+  //Post data (New todo)
+  async function postTodo(todo){
 
+    const airtableData = {
+      fields: {
+        Title: todo.title,
+      }
+    }
 
+    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/Default?`;
+
+    const options = {
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`
+      },
+      body: JSON.stringify(airtableData),
+    }
+    
+    try {
+
+      const response = await fetch(url,options);
+
+      if (!response.ok){
+        const message = `Error has ocurred:${response.status}`;
+        throw new Error(message);
+      }
+
+      const dataResponse = await response.json();
+      return dataResponse;
+
+  } catch (error){
+    console.log(error.message);
+    return null;
+  }
+}
 
   //Listens for empty array
   useEffect(()=>{
@@ -109,6 +134,7 @@ function App() {
 
   //remove todo from list
   function addTodo(newTodo){
+    postTodo(newTodo);
     dispatchTodo({
       type:'SET_TODO',
       payload:[...todoList.data,newTodo],
