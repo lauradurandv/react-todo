@@ -1,0 +1,22 @@
+.InputBox {
+    background-color: #ffffff;
+    padding: 8px;
+    border-style:none;
+    border-radius: 0px 0px 2px 2px;
+    border-bottom: 3px solid #505d62; 
+    height:30px;
+    font-size: 14pt;
+}
+
+.InputBox:focus {
+    outline:none;
+    border-style: none;
+    border-radius: 0px 0px 2px 2px;
+    border-bottom: 3px solid #505d62;
+    height: 30px;
+    font-size: 14pt;
+    background: rgb(237, 241, 247);
+    background: linear-gradient(0deg, rgba(237, 241, 247, 1) 35%, rgba(255, 255, 255, 1) 100%);
+    color:#505d62;
+}
+

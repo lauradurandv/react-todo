@@ -3,6 +3,7 @@ import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
 import { useEffect, useReducer } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import styles from './App.module.css';
 
 
 function App() {
@@ -154,11 +155,12 @@ function App() {
   //Routes elements
   const home = (
     <>
-      <h1>To Do List</h1>
+      <h1 className={styles.mainHeading}>Tasks:</h1>
         <AddTodoForm onAddTodo={addTodo} />
           { todoList.isLoading? (<p>Loading</p>) : 
           (
-            <TodoList onRemoveTodo={removeTodo} todoList={todoList}/>
+            <TodoList onRemoveTodo={removeTodo} todoList={todoList}
+            />
           )
           }
     </>

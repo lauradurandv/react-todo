@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import InputWithLabel from './InputWithLabel';
-
-
+import AddSign from "./assets/plus.svg?react";
+import styles from "./TodoFrom.module.css";
 function AddTodoForm(props){
 
     //Deconstructors
@@ -32,11 +32,12 @@ function AddTodoForm(props){
     }
 
     return(
-        <form id="AddTodoFrom" onSubmit={handleAddTodo} >
-            <InputWithLabel value={todoTitle} onChange={handleTitleChange}>
+        <form id="AddTodoFrom" onSubmit={handleAddTodo} > <div>
+            <InputWithLabel  value={todoTitle} onChange={handleTitleChange}>
                 Title
             </InputWithLabel>
-            <button type="submit">Add</button>
+            <AddSign className={styles.Plus} type="submit">Add</AddSign>
+        </div>
         </form>
     )
 }

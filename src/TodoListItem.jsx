@@ -1,13 +1,14 @@
-import TodoList from "./TodoList";
+import styles from "./TodoListItem.module.css";
+import Trash from "./assets/trash.svg?react";
 
 function TodoListItem(props){
     //Deconstructors
     const { todo, onRemoveTodo} = props;
     return(
-        <>
-            <li>{todo.title}</li>
-            <button onClick={() => onRemoveTodo(todo.id)}>Remove</button>
-        </>
+        <div className={styles.todo}>
+            <li className={styles.ListItem}>{todo.title}</li>
+            <Trash className={styles.trashButton} onClick={() => onRemoveTodo(todo.id)}>Remove</Trash>
+        </div>
     );
 }
-export default TodoListItem;
+export default TodoListItem

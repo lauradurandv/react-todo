@@ -1,0 +1,35 @@
+/* to do list styling */
+
+.ListItem {
+    font-family: "Kalam", cursive;
+    font-weight: 300;
+    font-style: normal;
+    font-optical-sizing: auto;
+    font-size:x-large;
+    color:#4b533f;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+.todo {
+    background-color: #f1f8e0;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #4b533f;
+    margin-bottom: 1em;
+    display:flex;
+    padding: 10px;
+}
+
+.trashButton{
+    background-color: #b0bfb1;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-right: 0;
+    margin-left:auto;
+}
+
+.trashButton:hover {
+    background-color: #4b533f;
+    color: white;
+}
