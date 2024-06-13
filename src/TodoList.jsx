@@ -1,11 +1,12 @@
 import TodoListItem from "./TodoListItem";
+import styles from "./TodoList.module.css";
 
 function TodoList(props){
     //Deconstructors
     const {todoList, onRemoveTodo} = props;
     
     return(
-        <ul>
+        <ul className={styles.List}>
         {
           todoList.data.map(function(item){
             return(

@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import styles from "./InputWithLabel.module.css";
 
 function InputWithLabel(props){
     //Deconstructors
@@ -14,7 +15,9 @@ function InputWithLabel(props){
     return(
         <>
             <label htmlFor="todoTitle">{children}</label>
-            <input ref={inputRef} name="title" id="todoTitle" placeholder="Task" value={value} onChange={onChange}/>
+            <input 
+            className={styles.InputBox}
+            ref={inputRef} name="title" id="todoTitle" placeholder="Task" value={value} onChange={onChange}/>
         </>
     )
 }

@@ -1,0 +1,44 @@
+
+.mainHeading {
+    font-family: "Tenor Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    background-color: #f1f8e0;
+    color: #4b533f;
+    font-style: normal;
+    font-size: xx-large;
+    border-radius: 10px;
+}
+
+ /* Media Query for Mobile Devices */
+ @media (max-width: 480px) {
+     body {
+        background-color: #a2a891;
+        padding-top:3%;
+        padding-bottom: 3%;
+     }
+ }
+
+ /* Iphone XR*/
+ @media (max-width: 414px) {
+     body {
+         background-color: #a2a891;
+     }
+ }
+
+ 
+
+ /* Media Query for low resolution  Tablets, Ipads */
+ @media (min-width: 481px) and (max-width: 767px) {
+     body {
+         background-color: #a2a891;
+     }
+ }
+
+ /* Media Query for Tablets Ipads portrait mode */
+ @media (min-width: 768px) and (max-width: 1024px) {
+     body {
+        background-color: #a2a891;
+     }
+    
+ }
