@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import styles from "./InputWithLabel.module.css";
+import PropTypes from "prop-types";
 
 function InputWithLabel(props){
     //Deconstructors
@@ -20,5 +21,10 @@ function InputWithLabel(props){
             ref={inputRef} name="title" id="todoTitle" placeholder="Task" value={value} onChange={onChange}/>
         </>
     )
+}
+InputWithLabel.propTypes ={
+    value:PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired
 }
 export default InputWithLabel;

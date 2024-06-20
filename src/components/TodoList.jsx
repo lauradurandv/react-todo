@@ -1,5 +1,6 @@
 import TodoListItem from "./TodoListItem";
 import styles from "./TodoList.module.css";
+import PropType from "prop-types";
 
 function TodoList(props){
     //Deconstructors
@@ -16,5 +17,9 @@ function TodoList(props){
         }
       </ul>
     )
+}
+TodoList.prototype ={
+  todoList: PropType.array.isRequired,
+  onRemoveTodo: PropType.func.isRequired,
 }
 export default TodoList
