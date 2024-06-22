@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import InputWithLabel from './InputWithLabel';
-import AddSign from "./assets/plus.svg?react";
+import AddSign from "/src/assets/plus.svg?react";
+import PropTypes from "prop-types";
 import styles from "./TodoFrom.module.css";
+
 function AddTodoForm(props){
 
     //Deconstructors
@@ -40,5 +42,8 @@ function AddTodoForm(props){
         </div>
         </form>
     )
+}
+AddTodoForm.propTypes ={
+    onAddTodo: PropTypes.func.isRequired,
 }
 export default AddTodoForm
