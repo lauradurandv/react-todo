@@ -39,7 +39,7 @@ function App() {
   //fetching data
   async function fetchData(){
 
-    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
+    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}?Default=Grid%20&sort[0][field]=Title&sort[0][direction]=asc`;
 
     const options = {
       methods: "GET",
@@ -111,6 +111,23 @@ function App() {
       }
 
       const dataResponse = await response.json();
+
+      dataResponse.records.sort((ObjectA,ObjectB) => {
+
+        const titleA = ObjectA.fields.Title;
+        const titleB = ObjectB.fields.Title;
+
+        if (titleA < titleB){
+          return 1;
+        }
+        if (titleA < titleB){
+          return -1;
+        } 
+        if (titleA == titleB){
+          return 0
+        }
+      })
+
       return dataResponse;
 
   } catch (error){
