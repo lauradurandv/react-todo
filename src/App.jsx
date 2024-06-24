@@ -5,7 +5,6 @@ import { useEffect, useReducer } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styles from './App.module.css';
 
-
 function App() {
 
   //Reducer
@@ -200,5 +199,4 @@ const nextToDoList = (
     </BrowserRouter>
   )
 }
-
 export default App
