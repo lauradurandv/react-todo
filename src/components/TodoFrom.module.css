@@ -3,8 +3,12 @@
     height:50px;
     border-radius: 3px;
     fill:#4b533f;
+    border-radius: 10px;
+    color:#4b533f;
+    border-color: #4b533f;
 }
 
 .Plus:hover{
     background-color: #f1f8E0;
 }
+
