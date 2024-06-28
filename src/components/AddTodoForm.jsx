@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import InputWithLabel from './InputWithLabel';
-import AddSign from "/src/assets/plus.svg?react";
 import PropTypes from "prop-types";
 import styles from "./TodoFrom.module.css";
 
@@ -20,9 +19,9 @@ function AddTodoForm(props){
     }
 
     function handleAddTodo(event){
-
         //Prevent default behavior of form submit
         event.preventDefault();
+
         //Pass to app.js
         const newAddToDo = {
             title: todoTitle,
@@ -38,7 +37,7 @@ function AddTodoForm(props){
             <InputWithLabel  value={todoTitle} onChange={handleTitleChange}>
                 Title
             </InputWithLabel>
-            <AddSign className={styles.Plus} type="submit">Add</AddSign>
+            <button className={styles.Plus} type="submit">Add</button>
         </div>
         </form>
     )

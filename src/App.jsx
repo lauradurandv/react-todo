@@ -57,6 +57,23 @@ function App() {
       }
 
       const data = await response.json();
+
+      data.records.sort((ObjectA,ObjectB) => {
+
+        const titleA = ObjectA.fields.Title;
+        const titleB = ObjectB.fields.Title;
+
+        if (titleA < titleB){
+          return 1;
+        }
+        if (titleA < titleB){
+          return -1;
+        } 
+        if (titleA == titleB){
+          return 0
+        }
+      })
+
   
       const todos = data.records.map((todo) => {
 
@@ -82,7 +99,6 @@ function App() {
 
   //Post data (New todo)
   async function postTodo(todo){
-
     const airtableData = {
       fields: {
         Title: todo.title,
@@ -111,28 +127,47 @@ function App() {
 
       const dataResponse = await response.json();
 
-      dataResponse.records.sort((ObjectA,ObjectB) => {
-
-        const titleA = ObjectA.fields.Title;
-        const titleB = ObjectB.fields.Title;
-
-        if (titleA < titleB){
-          return 1;
-        }
-        if (titleA < titleB){
-          return -1;
-        } 
-        if (titleA == titleB){
-          return 0
-        }
-      })
-
+      console.log(dataResponse);
       return dataResponse;
 
   } catch (error){
     console.log(error.message);
     return null;
   }
+}
+
+//deleting a todo 
+async function deleteTodo(id){
+
+  const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/Default/${id}`;
+
+  const options = {
+    method:"DELETE",
+      headers:{
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`
+      },
+  }
+
+  try{
+    const response = await fetch(url,options);
+
+    if(!response.ok){
+       const message = `Error has ocurred:${response.status}`;
+      throw new Error(message);
+    }
+
+    const dataResponse = await response.JSON;
+
+    console.log(dataResponse);
+    return dataResponse;
+
+  }
+  catch (error){
+    console.log(error.message);
+    return null;
+  }
+
 }
 
   //Listens for empty array
@@ -162,6 +197,7 @@ function App() {
   }
 
   function removeTodo(id){
+    deleteTodo(id);
     dispatchTodo({
       type:'REMOVE_TODO',
       payload:id,
