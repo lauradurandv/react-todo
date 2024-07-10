@@ -33,7 +33,7 @@ function AddTodoForm(props){
     }
 
     return(
-        <form id="AddTodoFrom" onSubmit={handleAddTodo} > <div>
+        <form id="AddTodoFrom" onSubmit={handleAddTodo} > <div className={styles.inputButtonContainer}>
             <InputWithLabel  value={todoTitle} onChange={handleTitleChange}>
                 Title
             </InputWithLabel>

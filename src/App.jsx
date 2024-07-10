@@ -3,6 +3,8 @@ import TodoList from './components/TodoList';
 import AddTodoForm from './components/AddTodoForm';
 import { useEffect, useReducer } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import aboutPage from './about';
+import Navbar from './Navbar';
 import styles from './App.module.css';
 
 function App() {
@@ -207,14 +209,26 @@ async function deleteTodo(id){
   //Routes elements
   const home = (
     <>
-      <h1 className={styles.mainHeading}>Tasks:</h1>
-        <AddTodoForm onAddTodo={addTodo} />
-          { todoList.isLoading? (<p>Loading</p>) : 
-          (
-            <TodoList onRemoveTodo={removeTodo} todoList={todoList}
-            />
-          )
-          }
+      <div className={styles.mainContainer}>
+      <Navbar/>
+     
+
+      <div className={styles.contentsContainer}>
+        <div className={styles.todoListContainer}>
+          <h2 className={styles.mainHeading}>List:</h2>
+            <AddTodoForm onAddTodo={addTodo} />
+              { todoList.isLoading? (<p>Loading</p>) : 
+              (
+                <TodoList onRemoveTodo={removeTodo} todoList={todoList}
+                />
+              )
+              }
+        </div>
+        <div>
+          <button>+</button>
+        </div>
+      </div>
+      </div>
     </>
   )
 
@@ -230,6 +244,8 @@ const nextToDoList = (
         
         <Route path="/" element={home} />
         <Route path="/new" element={nextToDoList} />
+        <Route path="/about" element={aboutPage}/>
+  
 
       </Routes>
     </BrowserRouter>

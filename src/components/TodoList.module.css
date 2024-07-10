@@ -1,9 +1,8 @@
 .List {
-    align-items: stretch;
-    padding-bottom: 5px;
+    align-items:stretch;
     background-color: #ffffff;
     justify-content: center;
     display: flex;
     flex-direction: column;
-        
+    padding-inline-start: 0px;
 }
