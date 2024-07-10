@@ -1,3 +1,9 @@
+.inputButtonContainer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
 .Plus {
     background-color: #ffffff;
     height:50px;

@@ -15,10 +15,12 @@ function InputWithLabel(props){
     
     return(
         <>
-            <label htmlFor="todoTitle">{children}</label>
-            <input 
-            className={styles.InputBox}
-            ref={inputRef} name="title" id="todoTitle" placeholder="Task" value={value} onChange={onChange}/>
+            <div>
+                <label htmlFor="todoTitle">{children}</label>
+                <input 
+                className={styles.InputBox}
+                ref={inputRef} name="title" id="todoTitle" placeholder="Task" value={value} onChange={onChange}/>
+            </div>
         </>
     )
 }

@@ -1,0 +1,27 @@
+
+.tab{
+    font-size: large;
+    font-family: "Tenor Sans", sans-serif;
+    margin: 1%;
+    padding: 1%;
+}
+.tab:hover{
+    background-color: #dfd3c3;
+}
+
+a {
+    color:#264e70;
+    text-decoration: none;
+}
+
+a:active {
+    color: blue;
+}
+
+
+.navBar {
+    background-color: #fdebd3;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+}
